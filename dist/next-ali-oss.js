@@ -24,11 +24,11 @@
       },
       uploads: function (inArray) {
         var self = this;
-        var promiseList = nx.map(inObject, function (_, item) {
+        var promiseList = inArray.map(function (item) {
           var name = item.name;
           var file = item.file;
           var options = item.options;
-          return this._client.multipartUpload(name, file, options);
+          return self._client.multipartUpload(name, file, options);
         });
         return Promis.all(promiseList);
       }
