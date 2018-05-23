@@ -5,4 +5,4 @@
 ## resources:
 
 ## todos:
-- [ ] unit test case
+- [ ] remove ali-oss package [use cdn url]
