@@ -24,13 +24,13 @@
       },
       uploads: function (inArray) {
         var self = this;
-        var promiseList = inArray.map(function (item) {
+        var list = inArray.map(function (item) {
           var name = item.name;
           var file = item.file;
           var options = item.options;
           return self._client.multipartUpload(name, file, options);
         });
-        return Promis.all(promiseList);
+        return Promis.all(list);
       }
     }
   });
