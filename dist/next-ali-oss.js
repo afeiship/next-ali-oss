@@ -30,7 +30,7 @@
           var options = item.options;
           return self._client.multipartUpload(name, file, options);
         });
-        return Promis.all(list);
+        return Promise.all(list);
       }
     }
   });
