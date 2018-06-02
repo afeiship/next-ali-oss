@@ -2,7 +2,7 @@
 
   var global = global || this || self || window;
   var nx = global.nx || require('next-js-core2');
-  var Oss = global.OSS || require('ali-oss');
+  var Oss = global.OSS;
 
   var NxAliOss = nx.declare('nx.AliOss', {
     statics: {
