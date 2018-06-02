@@ -25,7 +25,6 @@
     "mocha": "^3.5.0"
   },
   "dependencies": {
-    "ali-oss": "^5.2.0",
     "next-js-core2": "github:afeiship/next-js-core2",
     "next-queue": "github:afeiship/next-queue"
   }
