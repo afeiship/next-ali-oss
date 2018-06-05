@@ -7,8 +7,8 @@
   var NxAliOss = nx.declare('nx.AliOss', {
     statics: {
       _instance: null,
-      getInstance: function (inOssToken) {
-        return this._instance = this._instance || new NxAliOss(inOssToken);
+      getInstance: function (inOssToken, inOptions) {
+        return this._instance = this._instance || new NxAliOss(inOssToken, inOptions);
       }
     },
     properties: {
@@ -19,16 +19,17 @@
       }
     },
     methods: {
-      init: function (inOssToken) {
+      init: function (inOssToken,inOptions) {
         this._client = new Oss.Wrapper(inOssToken);
+        this._options = inOptions || { method: 'put' };
       },
       uploads: function (inArray) {
         var self = this;
+        var method = this._options.method;
         var list = inArray.map(function (item) {
           var name = item.name;
           var file = item.file;
-          var options = item.options;
-          return self._client.multipartUpload(name, file, options);
+          return self._client[method](name, file, this._options);
         });
         return Promise.all(list);
       }
