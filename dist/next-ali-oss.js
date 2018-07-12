@@ -6,9 +6,9 @@
 
   var NxAliOss = nx.declare('nx.AliOss', {
     statics: {
-      _instance: null,
       getInstance: function (inOssToken, inOptions) {
-        return this._instance = this._instance || new NxAliOss(inOssToken, inOptions);
+        //TODO: Must setToken everytime:
+        return new NxAliOss(inOssToken, inOptions);
       }
     },
     properties: {
