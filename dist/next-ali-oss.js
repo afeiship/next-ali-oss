@@ -25,7 +25,7 @@
       },
       upload: function (inName, inFile) {
         var method = this._options.method;
-        this._client[method](inName, inFile, this._options);
+        return this._client[method](inName, inFile, this._options);
       },
       uploads: function (inArray) {
         var self = this;
