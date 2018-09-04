@@ -19,9 +19,13 @@
       }
     },
     methods: {
-      init: function (inOssToken,inOptions) {
+      init: function (inOssToken, inOptions) {
         this._client = new Oss.Wrapper(inOssToken);
         this._options = inOptions || { method: 'put' };
+      },
+      upload: function (inName, inFile) {
+        var method = this._options.method;
+        this._client[method](inName, inFile, this._options);
       },
       uploads: function (inArray) {
         var self = this;
